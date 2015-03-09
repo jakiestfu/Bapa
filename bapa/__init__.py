@@ -8,8 +8,11 @@ app.config.from_envvar('BAPA_CONF')
 
 mail = Mail(app)
 
+# Extensions
+app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
+
 # blueprints
-from bapa.modules import home, membership, password 
+from bapa.modules import home, membership, password
 app.register_blueprint(home.home_bp)
 app.register_blueprint(membership.memb_bp, url_prefix='/membership')
 app.register_blueprint(password.pass_bp, url_prefix='/password')

@@ -26,7 +26,7 @@ def register():
             request.form['firstname'],
             request.form['lastname']
         )
-        if not error:    
+        if not error:
             flash('You were successfully registered and can login now')
             return redirect(url_for('home.login'))
     return render_template('register.html', error=error)
